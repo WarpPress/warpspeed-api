@@ -34,8 +34,6 @@ app.post('/contact',  (req, res) => {
     contactCtrl.save(req.body).then((data) => {
         res.json(data);
     })
-    // res.json(db.find({name: 'chad'}));
-
 })
 
 app.get('/contact',  (req, res) => {
