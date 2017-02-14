@@ -7,7 +7,8 @@ var contactSchema = new Schema({
   name: String,
   coname: String,
   website: String,
-  email: String
+  email: String,
+  goals: String
 });
 
 var User = mongoose.model('Contact', contactSchema);

@@ -4,19 +4,20 @@ var bluebird = require('bluebird');
 
 var ContactCtrl = function ()  {}
 
-ContactCtrl.prototype.save = function (contact) {
+ContactCtrl.prototype.save = function (data) {
     return new Promise((resolve, reject) => {
         let newContact = new Contact({
             date: new Date(),
-            name: contact.name,
-            coname: contact.coname,
-            website: contact.website,
-            email: contact.email
+            name: data.name,
+            coname: data.coname,
+            website: data.website,
+            email: data.email,
+            goals: data.goals
         })
 
         newContact.save(err => {
             if (err) reject(err);
-            else resolve('saved');
+            else resolve({status: 200, message: 'saved'});
         })
     })
 }

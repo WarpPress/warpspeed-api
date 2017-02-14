@@ -9,8 +9,9 @@ const app = express();
 const contactCtrl = new ContactCtrl();
 
 app.use(function(req, res, next) {
-  var allowedOrigins = ['warpspeed.site', '127.0.0.1:9999', 'localhost:9999'];
-  var origin = req.headers.host;
+    console.log(req.headers);
+  var allowedOrigins = ['https://d376yh3jkryyz6.cloudfront.net'];
+  var origin = req.headers.origin;
   if(allowedOrigins.indexOf(origin) > -1){
        res.setHeader('Access-Control-Allow-Origin', origin);
        return next();
@@ -29,7 +30,7 @@ app.use(morgan('combined'));
 
 //routes
 app.post('/contact',  (req, res) => {
-
+    console.log(req.body)
     contactCtrl.save(req.body).then((data) => {
         res.json(data);
     })
