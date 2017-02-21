@@ -10,7 +10,12 @@ const contactCtrl = new ContactCtrl();
 
 app.use(function(req, res, next) {
     console.log(req.headers);
-  var allowedOrigins = ['https://d376yh3jkryyz6.cloudfront.net'];
+  var allowedOrigins = [
+	'https://www.warpspeed.site', 
+	'https://warpspeed.site',
+	'http://warpspeed.site',
+	'http://warspeed.site',
+	'https://d376yh3jkryyz6.cloudfront.net'];
   var origin = req.headers.origin;
   if(allowedOrigins.indexOf(origin) > -1){
        res.setHeader('Access-Control-Allow-Origin', origin);
