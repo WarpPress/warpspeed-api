@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
 
 
-module.exports = mongoose.connect('mongodb://localhost/contacts');
+module.exports = mongoose.connect(`mongodb://`, 
+{ useMongoClient: true });
